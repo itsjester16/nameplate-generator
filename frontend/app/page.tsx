@@ -80,7 +80,7 @@ export default function Home() {
       );
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/generate',
+        `${process.env.NEXT_PUBLIC_API_URL}/generate`,
         {
           method: "POST",
           body: formData,
