@@ -411,6 +411,10 @@ export default function Home() {
                 text-xl
                 font-bold
               "
+              style={{
+                fontSize: `${NAME_FONT_PX}px`,
+                top: "45%"
+              }}
             >
               {name || "NAME"}
             </div>
@@ -423,8 +427,8 @@ export default function Home() {
                 -translate-x-1/2
               "
               style={{
-                fontSize: `${NAME_FONT_PX}px`,
-                top: "45%"
+                fontSize: `${TITLE_FONT_PX}px`,
+                top: "62%"
               }}
             >
               {title || "TITLE"}
