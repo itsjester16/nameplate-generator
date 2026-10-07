@@ -21,6 +21,23 @@ export default function Home() {
 
   const [loading, setLoading] = useState(false);
 
+  const PLATE_WIDTH_MM = 264;
+  const PLATE_HEIGHT_MM = 64;
+  
+  const PREVIEW_WIDTH_PX = 660;
+  const PREVIEW_HEIGHT_PX = 160;
+  
+  const X_SCALE = PREVIEW_WIDTH_PX / PLATE_WIDTH_MM;
+  const Y_SCALE = PREVIEW_HEIGHT_PX / PLATE_HEIGHT_MM;
+  
+  function previewX(x: number) {
+    return PREVIEW_WIDTH_PX / 2 + x * X_SCALE;
+  }
+  
+  function previewY(y: number) {
+    return PREVIEW_HEIGHT_PX / 2 - y * Y_SCALE;
+  }
+
   useEffect(() => {
     if (!logo) {
       setLogoPreview("");
@@ -355,6 +372,10 @@ export default function Home() {
               border-slate-600
               overflow-hidden
             "
+            style={{
+              width: `${PREVIEW_WIDTH_PX}px`,
+              height: `${PREVIEW_HEIGHT_PX}px`,
+              }}
           >
 
             <div
@@ -415,10 +436,13 @@ export default function Home() {
                   text-white
                 "
                 style={{
-                  width: `${graphic.width}px`,
-                  height: `${graphic.width}px`,
-                  left: `${150 + graphic.x}px`,
-                  top: `${60 + graphic.y}px`
+                  width: `${graphic.width * X_SCALE}px`,
+                  height: `${graphic.width * X_SCALE}px`,
+                
+                  left: `${previewX(graphic.x)}px`,
+                  top: `${previewY(graphic.y)}px`,
+                
+                  transform: "translate(-50%, -50%)",
                 }}
               >
                 G{index + 1}
