@@ -24,8 +24,8 @@ export default function Home() {
   const PLATE_WIDTH_MM = 264;
   const PLATE_HEIGHT_MM = 64;
   
-  const PREVIEW_WIDTH_PX = 660;
-  const PREVIEW_HEIGHT_PX = 160;
+  const PREVIEW_WIDTH_PX = 600;
+  const PREVIEW_HEIGHT_PX = 145;
   
   const X_SCALE = PREVIEW_WIDTH_PX / PLATE_WIDTH_MM;
   const Y_SCALE = PREVIEW_HEIGHT_PX / PLATE_HEIGHT_MM;
@@ -356,7 +356,7 @@ export default function Home() {
           {/* RIGHT PANEL */}
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
 
-          <h2 className="text-xl font-semibold mb-4">
+          <h2 className="text-lg font-semibold tracking-wide">
             Live Preview
           </h2>
 
@@ -415,7 +415,7 @@ export default function Home() {
                 left-1/2
                 top-[70%]
                 -translate-x-1/2
-                text-sm
+                text-xs tracking-wide
               "
             >
               {title || "TITLE"}
