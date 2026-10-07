@@ -29,6 +29,12 @@ export default function Home() {
   
   const X_SCALE = PREVIEW_WIDTH_PX / PLATE_WIDTH_MM;
   const Y_SCALE = PREVIEW_HEIGHT_PX / PLATE_HEIGHT_MM;
+
+  const NAME_HEIGHT_MM = 24;
+  const TITLE_HEIGHT_MM = 10;
+
+  const NAME_FONT_PX = NAME_HEIGHT_MM * Y_SCALE;
+  const TITLE_FONT_PX = TITLE_HEIGHT_MM * Y_SCALE;
   
   function previewX(x: number) {
     return PREVIEW_WIDTH_PX / 2 + x * X_SCALE;
@@ -415,8 +421,11 @@ export default function Home() {
                 left-1/2
                 top-[70%]
                 -translate-x-1/2
-                text-xs tracking-wide
               "
+              style={{
+                fontSize: `${NAME_FONT_PX}px`,
+                top: "45%"
+              }}
             >
               {title || "TITLE"}
             </div>
